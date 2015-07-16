@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-# -*- coding:utf-8 -*-
 import re
 import os
 import codecs
@@ -8,6 +7,12 @@ def ngram(pos,word_dic,n,useless):
     location = u'project\%s\\'%place.decode('utf-8')
     all_files = os.path.abspath(location)
     total_files = 0
+    
+    find_ls = [u'被告抗辯',u'被告則以',u'被告辯稱',u'被告之答辯',\
+      u'被告則辯稱',u'答辯',u'答辯聲明',u'情詞置辯']
+    
+    find = [u'事實及理由',u'事實']
+    
     for x in os.listdir(all_files):
         if x[0]!='W' and x[0]!='c':# removed Web_xxx.txt and check_xxx.txt
             total_files +=1
@@ -17,11 +22,23 @@ def ngram(pos,word_dic,n,useless):
                             .replace(u' ','')\
                             .replace(u'<span  style="color:#e8e8e8">.</span>','')
                 content = re.sub(u'[\○\%\(\)\s\n,，。％、（）／《》】…【「」；：\s, ，\.。:\?？\!！「」 ─┐ ─┘ \[ \] \│ \── \─┼ \┼─ \├─ \├ \├─ \┤ \= \┬┬ \┴┴ \d：【】、；-]','',a)
-
+                
+                for i in find:
+                    if content.find(i)!=-1:
+                        begin = content.find(i)
+                        break
+                    
+                for i in find_ls:
+                    if content.find(i)!=-1:
+                        end = content.find(i)
+                        break
+            
+			content = content[begin:end] if end>0 else content[begin:]
+            for i in useless:
+                if content.find(i)!=-1:
+                    content = content.replace(i,'')
             #start for N-gram
             for i in range(0,len(content)-n+1):
-                if content[i:i+n] in useless:
-                    continue
                 if content[i:i+n] not in word_dic:
                     word_dic[content[i:i+n]] = 1
                 else:
@@ -30,7 +47,6 @@ def ngram(pos,word_dic,n,useless):
     #print total_files
     return total_files
 print 'function ngram is ok'
-#___________________________________________________________________
 
 def output(word_dic,total,n):
     import operator
@@ -41,7 +57,7 @@ def output(word_dic,total,n):
     
     save_name = 'Ngram %d.txt'%n
     with open(save_name,'w')as f:
-        f.write('there are %d files!\n'%total)
+        f.write('Total files - %d\n'%total)
         for x in word_dic:
             if word_dic[x]>= lower and word_dic[x]<= upper:
                 num+=1
@@ -49,10 +65,8 @@ def output(word_dic,total,n):
     print 'ok'
 print 'function output is ok'
 
-#___________________________________________________________________
-
 print 'Let\'s start!'
-n=4
+n=7
 word_dic={}  #for seperate's words
 total = 0
 ls = ['臺北','士林','新北','宜蘭'\
@@ -72,9 +86,10 @@ with codecs.open('useless.txt','r','utf-8') as f:
 print 'list useless is ok'
 
 # total = ngram('金門',word_dic,n,useless)
-for x in ls[0:2]:
-    print x
+for x in ls[0:3]:
+    print x.decode('utf-8'),'start'
     total += ngram(x,word_dic,n,useless)
 print total
 output(word_dic,total,n)
 print 'fucking %d has done'%n
+
