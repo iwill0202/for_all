@@ -1,0 +1,22 @@
+臺北 - find number - 3183 ; total number - 5210 ; rate - 61.1 % 
+士林 - find number - 1821 ; total number - 2646 ; rate - 68.8 % 
+新北 - find number - 2511 ; total number - 4533 ; rate - 55.4 % 
+宜蘭 - find number - 487 ; total number - 767 ; rate - 63.5 % 
+基隆 - find number - 613 ; total number - 1037 ; rate - 59.1 % 
+桃園 - find number - 2709 ; total number - 3866 ; rate - 70.1 % 
+新竹 - find number - 1525 ; total number - 1966 ; rate - 77.6 % 
+苗栗 - find number - 537 ; total number - 776 ; rate - 69.2 % 
+臺中 - find number - 4052 ; total number - 5798 ; rate - 69.9 % 
+彰化 - find number - 1277 ; total number - 1851 ; rate - 69.0 % 
+南投 - find number - 736 ; total number - 995 ; rate - 74.0 % 
+雲林 - find number - 659 ; total number - 985 ; rate - 66.9 % 
+嘉義 - find number - 1168 ; total number - 1681 ; rate - 69.5 % 
+臺南 - find number - 1987 ; total number - 3276 ; rate - 60.7 % 
+高雄 - find number - 3170 ; total number - 4919 ; rate - 64.4 % 
+花蓮 - find number - 504 ; total number - 813 ; rate - 62.0 % 
+臺東 - find number - 201 ; total number - 314 ; rate - 64.0 % 
+屏東 - find number - 893 ; total number - 1402 ; rate - 63.7 % 
+澎湖 - find number - 14 ; total number - 28 ; rate - 50.0 % 
+金門 - find number - 14 ; total number - 38 ; rate - 36.8 % 
+連江 - find number - 3 ; total number - 6 ; rate - 50.0 % 
+total_find - 28064 ; total - 42907 ; rate - 65.4 %
