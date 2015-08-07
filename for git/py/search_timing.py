@@ -1,15 +1,18 @@
 # -*- coding:utf-8 -*-
-timing = [u'凌晨',u'晚間',u'零時',u'晚上',u'上午',u'下午',u'中午',u'早上']
+timing = {u'夜間':[u'凌晨',u'晚間',u'零時',u'晚上',u'半夜',u'夜半',u'夜晚',u'零晨',u'午夜',u'淩晨',u'深夜',u'晚11時',u'晚8時',u'晚6時',u'晚7時',u'晚二十一時',u'晚九時',u'晚十一時',u'晚六時',u'晚22時',u'晚9時',u'晚10時',u'夜晚0時'],
+u'日間':[u'上午',u'下午',u'中午',u'早上',u'傍晚',u'早晨',u'清晨',u'晨五時',u'晨5時',u'晨間',u'午間',u'午四時',u'午4時',u'午22時',u'午二十二時',u'近午時間',u'正午',u'上許',u'上9時',u'上九時',u'上五8時',u'白天',u'日間'],
+}
 print 'dic timing set'
 
 def search_timing(timing,content):
     num = 0
-    for v in timing:
-        if v in content:
-            num += 1
-            break
+    for t in timing.keys():
+        for s in timing[t]:
+            if s in content:
+                num += 1
+                break
 #     print 'search_situation - %d'%num
-    return 1 if num > 0 else 0
+    return 1 if num == 2 else 0
 
 print 'def search_timing(timing,content) set'
 
@@ -32,14 +35,15 @@ def run(pos):
     for x in os.listdir(all_files):
         if x[0]!= u'c' and x[0]!= u'W':
             with codecs.open('%s%s'%(location,x),'r','utf-8') as f:
+                print x
                 total_get = 0
                 content = f.read()
                                 
-                total_get += search_timing(timing,content)
+            total_get += search_timing(timing,content)
 
-                if total_get > 0:
+            if total_get > 0:
 #                     print x,total_get
-                    total+= 1
+                total+= 1
 #                 print '-------------'
     return total,len(os.listdir(all_files)),(total+0.0)*100/len(os.listdir(all_files))
 print 'def run(pos) set\n'
