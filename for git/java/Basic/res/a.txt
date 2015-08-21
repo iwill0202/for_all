@@ -1,0 +1,7 @@
+GeneralEmployee,Marry,Female,Taipei,20070325,2679-8811,35000,6
+GeneralEmployee,Will,Male,Kaohsiung,20100508,2785-8651,35000,0
+SecondClassManager,Janey,Female,Taichung,20090106,2769-7642,43000,10
+SecondClassManager,Mark,Male,Hualien,20050419,2546-2314,45000,0
+FirstClassManager,Sherry,Female,Taipei,19900625,2367-9887,52000,2
+FirstClassManager,Patrick,Male,Tainan,19920508,2699-4667,53000,0
+		
